@@ -90,9 +90,6 @@ int main() {
 	}
 
 	dstmtr = CPU_distance_matrix(h_dataset);
-	/*distance_matrix_kernel<<<24415, 1024>>>(d_dataset, d_distance_matrix);
-	cudaMemcpy(h_distance_matrix, d_distance_matrix, distance_matrix_dimension,
-			cudaMemcpyDeviceToHost);*/
 	for (int i = 0; i < n_points * n_points; i++) {
 		sum_CPU += *(dstmtr + i);
 		sum_GPU += h_distance_matrix[i];
